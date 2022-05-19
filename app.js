@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const routes = require('./controllers')
-const port = 8080
+const port = process.env.PORT || 3000
 const mongoose = require('mongoose');
 
 app.use(cors())
