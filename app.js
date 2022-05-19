@@ -13,5 +13,5 @@ app.use('/api',routes)
 
 app.listen(port, () => {
     console.log(`Guitar Backend UP on ${port}`)
-    mongoose.connect('mongodb://localhost:27017/guitarUser').then(r => console.log("Database Connected"));
+    mongoose.connect("mongodb+srv://dbadmin:BdhO7azKO7cxQgGP@guitarra.jec37.mongodb.net/guitarra?retryWrites=true&w=majority").then(r => console.log("Database Connected"));
 })
