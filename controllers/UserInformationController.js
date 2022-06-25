@@ -72,6 +72,8 @@ router.put("/tests", async (req, res) => {
         });
     }
 
+    const user = await UserModel.findOne({ email: body.email }).exec();
+
     body.tests.map((c, index) => {
         if (c.score < user.tests[index].score) {
             c.score = user.tests[index].score;
@@ -79,8 +81,6 @@ router.put("/tests", async (req, res) => {
 
         return c;
     });
-
-    const user = await UserModel.findOne({ email: body.email }).exec();
     user.tests = body.tests;
     await user.save();
     res.json(user);
